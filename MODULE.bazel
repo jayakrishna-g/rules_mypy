@@ -25,6 +25,9 @@ pip.parse(
     enable_implicit_namespace_pkgs = True,
     hub_name = "rules_mypy_pip",
     python_version = PYTHON_VERSION,
+    envsubst = ["PIP_INDEX_URL"],
+    experimental_index_url = "${PIP_INDEX_URL:-https://mirrors.aliyun.com/pypi/simple}",
+    experimental_extra_index_urls = ["https://mirrors.aliyun.com/pypi/simple"],
     requirements_by_platform = {
         "//mypy/private:requirements.txt": "*",
     },
